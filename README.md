@@ -32,3 +32,9 @@ Built with:
   ],
   "totalEstimatedTime": "40 hours"
 }
+```
+Setup: 
+Create a `.env` file by copying the example:
+
+```bash
+cp .env.example .env
