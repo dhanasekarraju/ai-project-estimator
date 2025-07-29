@@ -1,69 +1,34 @@
-# React + TypeScript + Vite
+# AI Project Estimator 🔮
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An AI-powered tool to generate project estimates including epics, tasks, subtasks, estimated hours, and suggested roles.
 
-Currently, two official plugins are available:
+Built with:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🧠 **AI**: [Groq API](https://groq.com/) (running Llama3)
+- 💻 **Frontend**: React + TypeScript + TailwindCSS (Vite)
+- 🔧 **Backend**: Node.js + Express
+- 📦 **Export**: Excel, JSON, Markdown
+- ☁️ **Deployment**: Vercel / Render (coming soon)
 
-## Expanding the ESLint configuration
+## 🔑 How It Works
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. User enters project details: type, features, stack, timeline, etc.
+2. Backend sends prompt to **Groq API**
+3. Groq (Llama3) returns structured JSON with tasks and time estimates
+4. Frontend displays it beautifully with export options
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🧪 Example Output
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+```json
+{
+  "tasks": [
+    {
+      "epic": "Frontend Development",
+      "task": "Build login form",
+      "subtask": "Form validation and API integration",
+      "estimatedTime": "6 hours",
+      "suggestedRole": "Frontend Developer"
+    }
+  ],
+  "totalEstimatedTime": "40 hours"
+}
