@@ -28,3 +28,7 @@ Coming soon…
 cd ai-project-estimator
 npm install
 npm run dev
+
+```
+📄 License
+MIT
