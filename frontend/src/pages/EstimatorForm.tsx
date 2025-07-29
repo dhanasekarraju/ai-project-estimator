@@ -46,7 +46,6 @@ export default function EstimatorForm({ onResult }: EstimatorFormProps) {
             let errorMessage = 'Failed to generate estimate. Please try again.';
 
             if (err instanceof Error) {
-                // Handle different error cases
                 if (err.message.includes('Failed to fetch')) {
                     errorMessage = 'Network error - please check your connection';
                 } else if (err.message.includes('HTTP error')) {

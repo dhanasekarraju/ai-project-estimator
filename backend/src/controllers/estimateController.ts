@@ -1,4 +1,3 @@
-// src/controllers/estimateController.ts
 import { Request, Response } from "express";
 import { EstimationService } from "../services/estimation.service";
 import {ProjectDetails} from "../types/estimateTypes";

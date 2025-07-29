@@ -1,11 +1,10 @@
-// src/types/estimation.types.ts
 import { z } from 'zod';
 import { TaskSchema, EstimationResultSchema } from '../schemas/estimation.schema';
 
 export type Task = z.infer<typeof TaskSchema>;
 
 export type EstimationResult = z.infer<typeof EstimationResultSchema> & {
-    projectName: string;  // Make it required here
+    projectName: string;
 };
 
 export interface ProjectDetails {

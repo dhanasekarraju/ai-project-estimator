@@ -76,23 +76,18 @@ export class EstimationService {
         projectDetails: ProjectDetails
     ): Promise<EstimationResult> {
         try {
-            // 1. Validate input
             if (!projectDetails.projectName || !projectDetails.features) {
                 throw new Error("Project name and features are required");
             }
 
-            // 2. Generate AI prompt
             const prompt = this.createPrompt(projectDetails);
 
-            // 3. Get AI response
             const aiResponse = await this.generateAIEstimate(prompt);
             if (!aiResponse) throw new Error("Empty AI response");
 
-            // 4. Parse and validate
             const parsed = JSON.parse(aiResponse);
             const validated = this.validateEstimation(parsed);
 
-            // 5. Add project name to result
             return {
                 ...validated
             };

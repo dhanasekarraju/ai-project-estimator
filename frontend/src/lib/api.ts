@@ -1,7 +1,6 @@
 import type {ProjectDetails} from "@/types/estimation.types.ts";
 import type {EstimationResult} from "@/types";
 
-// src/lib/api.ts
 export async function estimateProject(
     projectDetails: ProjectDetails
 ): Promise<EstimationResult> {
@@ -21,16 +20,14 @@ export async function estimateProject(
 
         const data = await response.json();
 
-        // Validate the response matches our schema
         if (!data.tasks || !data.totalEstimatedTime) {
             throw new Error('Invalid response format from server');
         }
 
-        // Return with the projectName from the form
         return {
-            projectName: projectDetails.projectName, // From form
-            tasks: data.tasks,                       // From API
-            totalEstimatedTime: data.totalEstimatedTime // From API
+            projectName: projectDetails.projectName,
+            tasks: data.tasks,
+            totalEstimatedTime: data.totalEstimatedTime
         };
     } catch (error) {
         console.error('API call failed:', error);
