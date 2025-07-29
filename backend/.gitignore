@@ -1,0 +1,13 @@
+# dependencies
+node_modules/
+
+# dotenv
+.env
+
+# builds
+dist/
+
+# IDE/editor folders
+.vscode/
+.idea/
+*.iml
