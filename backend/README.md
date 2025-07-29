@@ -16,6 +16,11 @@ It connects with the **Groq API (LLaMA3)** to return intelligent project breakdo
 
 ---
 
+🚀 Getting Started
+cd backend
+npm install
+npm run dev
+
 ## 🔐 Environment Variables
 
 Create a `.env` file with:
